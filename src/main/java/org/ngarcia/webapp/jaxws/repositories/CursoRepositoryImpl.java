@@ -31,8 +31,7 @@ public class CursoRepositoryImpl implements CursoRepository {
 
     @Override
     public Curso porId(Long id) {
-        String sql = "select from Curso c where c.id=:id";
-        return em.createQuery(sql, Curso.class).setParameter("id",id).getSingleResult();
+        return em.find(Curso.class,id);
     }
 
     @Override

@@ -3,7 +3,7 @@ package org.ngarcia.webapp.jaxws.models;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement //para que sepa convertir a XML
+//@XmlRootElement //para que sepa convertir a XML (no necesario en REST)
 @Entity
 @Table(name="cursos")
 public class Curso {
