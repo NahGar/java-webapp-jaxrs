@@ -73,5 +73,4 @@ public class Curso {
     public void setDuracion(Double duracion) {
         this.duracion = duracion;
     }
-
 }
