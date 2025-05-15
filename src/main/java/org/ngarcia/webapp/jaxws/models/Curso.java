@@ -1,5 +1,7 @@
 package org.ngarcia.webapp.jaxws.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
@@ -15,7 +17,14 @@ public class Curso {
     private String nombre;
 
     private String descripcion;
-    private String instructor;
+
+    //private String instructor;
+
+    //@JsonbTransient //para que no incluya instructor
+    //@JsonIgnore //para que no incluya instructor (requiere resteasy)
+    @ManyToOne( fetch = FetchType.LAZY)
+    private Instructor instructor;
+
     private Double duracion;
 
     public Curso() {
@@ -49,11 +58,11 @@ public class Curso {
         this.descripcion = descripcion;
     }
 
-    public String getInstructor() {
+    public Instructor getInstructor() {
         return instructor;
     }
 
-    public void setInstructor(String instructor) {
+    public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
     }
 
@@ -64,4 +73,5 @@ public class Curso {
     public void setDuracion(Double duracion) {
         this.duracion = duracion;
     }
+
 }
